@@ -11,7 +11,7 @@ if(argc!=2){
 printf("getpng <file>\n");exit(1);
 }
 FILE *file=fopen(argv[1],"rb");
-int gett;
+unsigned int gett;
 int done=0;
 char fn[128]={0};
 while(1){
