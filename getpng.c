@@ -18,7 +18,7 @@ while(1){
 gett=fgetc(file);
 if(gett==EOF){exit(0);}
 if(gett==header[done]){
-done++;
+done++;continue;
 if(done==4){
 done=0;
 memset(fn,128,0);
