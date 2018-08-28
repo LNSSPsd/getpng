@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <memory.h>
 
-unsigned char header[4]={0x89,0x50,0x4E,0x47};
-unsigned char end[4]={0xAE,0x42,0x60,0x82};
+char header[4]={0x89,0x50,0x4E,0x47};
+char end[4]={0xAE,0x42,0x60,0x82};
 int loop=1;
 
 void main(int argc,char *argv[]){
@@ -11,7 +11,7 @@ if(argc!=2){
 printf("getpng <file>\n");exit(1);
 }
 FILE *file=fopen(argv[1],"rb");
-unsigned int gett;
+int gett;
 int done=0;
 char fn[128]={0};
 while(1){
