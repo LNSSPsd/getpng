@@ -39,7 +39,7 @@ if(done!=0){done=0;}
    }
    }
   }
+  if(done!=0){done=0;}
  }
- if(done!=0){done=0;}
-}
+ //if(done!=0){done=0;}
 }
