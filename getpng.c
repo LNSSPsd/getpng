@@ -1,12 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
+#include <execinfo.h>
+#include <signal.h>
+#include <ucontext.h>
+#include <unistd.h>
 
 unsigned char *header="\x89PNG\r";
 unsigned char *end="IEND\xae\x42\x60\x82";
 int loop=1;
 
+void sh(int sig,siginfo_t inff,void* ptrr){
+  void *array[52];
+  char **messages;
+  int size;
+  
+  printf("Signal %d (%s) received!\n\nDumping Stacks...");
+  size=backtrace(array,52);
+  messages=backtrace_symbols(array,size);
+  
+  for(int i=0;i<size && messages!=NULL;i++){
+    printf("#%d: %s\n",i,messages[i]);
+  }
+  free(messages);
+  exit(sig);
+  
+}
+
 void main(int argc,char *argv[]){
+  struct sigaction sa;
+  sa.sa_sigaction=sh;
+  sa.sa_flags=SA_RESTART|SA_SIGINFO;
+  sigaction(SIGSEGV,&sa,(struct sigaction *)NULL)
+  
 if(argc!=2){
 printf("getpng <file>\n");exit(1);
 }
