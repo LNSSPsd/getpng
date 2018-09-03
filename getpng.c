@@ -6,6 +6,9 @@
 #include <ucontext.h>
 #include <unistd.h>
 
+#define HEADER_LENGTH 5
+#define END_LENGTH 8
+
 unsigned char *header="\x89PNG\r";
 unsigned char *end="IEND\xae\x42\x60\x82";
 int loop=1;
@@ -45,7 +48,7 @@ gett=fgetc(file);
 if(gett==EOF){exit(0);}
 if(gett==header[done]){
 done++;
-if(done==5){
+if(done==HEADER_LENGTH){
 done=0;
 memset(fn,128,0);
 sprintf(fn,"%s_%d.png",argv[1],loop);
@@ -58,7 +61,7 @@ if(gett==EOF){printf("ERROR: EOF TOO FIRST\n");exit(3);}
 fputc(gett,out);
 if(gett==end[done]){
 done++;
-if(done==8){done=0;printf("Found png %d=>%s\n",loop-1,fn);fclose(out);break;}
+if(done==END_LENGTH){done=0;printf("Found png %d=>%s\n",loop-1,fn);fclose(out);break;}
 continue;
   }
 if(done!=0){done=0;}
