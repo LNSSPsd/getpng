@@ -31,7 +31,7 @@ void main(int argc,char *argv[]){
   struct sigaction sa;
   sa.sa_sigaction=sh;
   sa.sa_flags=SA_RESTART|SA_SIGINFO;
-  sigaction(SIGSEGV,&sa,(struct sigaction *)NULL)
+  sigaction(SIGSEGV,&sa,(struct sigaction *)NULL);
   
 if(argc!=2){
 printf("getpng <file>\n");exit(1);
