@@ -18,7 +18,7 @@ void sh(int sig,siginfo_t inff,void* ptrr){
   char **messages;
   int size;
   
-  printf("Signal %d (%s) received!\n\nDumping Stacks...");
+  printf("Signal %d (%s) received!\n\nDumping Stacks...",sig,strsignal(sig));
   size=backtrace(array,52);
   messages=backtrace_symbols(array,size);
   
