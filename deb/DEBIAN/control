@@ -1,0 +1,6 @@
+Package: GetPNG
+Version: 0.9.9-0
+Architecture: all
+Installed-Size: 10
+Maintainer: LNSSPsd
+Description: Get 1 or more png file from 1 file.

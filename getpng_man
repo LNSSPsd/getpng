@@ -1,0 +1,20 @@
+.TH GetPNG 1 "GetPNG Command"
+.SH NAME
+getpng \- Get 1 or more png file from 1 file.
+.SH SYNOPSIS
+.B getpng
+.RB [ File ]
+.SH DESCRIPTION
+.I getpng
+is a tools to get 1 or more png file(s) from 1 binary file.
+Like (.glb) file.
+Getpng Accept all binary file to input and output is [BinaryFileName]_[Num].png
+.SH AUTHOR
+.B LNSSPsd
+.SH MJTG
+.B MJTG 
+is a technology to discove something about Minecraft.
+Our QQ Group is: 
+.I 590352162
+.SH MY GITHUB
+https://github.com/LNSSPsd
