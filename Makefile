@@ -1,11 +1,12 @@
 CC =gcc
-CARGS =-rdynamic -w
+CFLAGS =-rdynamic -w
+OUT = getpng
 REMOVE =rm -rf
 CHMODTO =0755
 CHMODMAN =0644
 DEBFILE =getpng.deb
 
-.PHONY :all deb clean rootp install uninstall
+.PHONY :all deb clean rootp install uninstall getpng
 
 all: getpng
 	@echo [ $@ ] Done
@@ -21,7 +22,7 @@ deb: getpng
 	@echo [ $@ ] Done
 
 getpng: main.c
-	$(CC) main.c $(CARGS) -o getpng
+	$(CC) main.c $(CFLAGS) -o $(OUT)
 	@echo [ $@ ] Done
 
 clean:
