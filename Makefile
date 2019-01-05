@@ -12,6 +12,7 @@ all: getpng
 	@echo [ $@ ] Done
 
 deb: getpng
+	mkdir deb/usr;mkdir deb/usr/bin;mkdir deb/usr/share;mkdir deb/usr/share/man;mkdir deb/usr/share/man/man1
 	cp getpng deb/usr/bin/
 	cp getpng_man /tmp/getpng.1
 	gzip /tmp/getpng.1
